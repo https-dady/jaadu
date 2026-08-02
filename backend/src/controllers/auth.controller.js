@@ -1,45 +1,64 @@
 const { signupUser,loginUser}=require("../services/auth.service");
+const asyncHandler = require("../utils/asyncHandler");
+const ApiResponse = require("../utils/ApiResponse");
 
-const signup = async (req, res) => {
-  try {
+const signup = asyncHandler(async (req, res) => {
+
     const user = await signupUser(req.body);
 
-    return res.status(201).json({
-      success: true,
-      message: "User registered successfully",
-      data: user,
-    });
-  } catch (error) {
-    return res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
-const login = async (req, res) => {
-  try {
+    return res.status(201).json(
+
+        new ApiResponse(
+
+            201,
+
+            "User registered successfully.",
+
+            user
+
+        )
+
+    );
+
+});
+
+const login = asyncHandler(async (req, res) => {
+
     const result = await loginUser(req.body);
 
-    return res.status(200).json({
-      success: true,
-      message: "Login successful",
-      data: result,
-    });
-  } catch (error) {
-    return res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
+    return res.status(200).json(
 
-const getMe = async (req, res) => {
-    return res.status(200).json({
-        success: true,
-        user: req.user
-    });
-};
+        new ApiResponse(
 
+            200,
+
+            "Login successful.",
+
+            result
+
+        )
+
+    );
+
+});
+
+const getMe = asyncHandler(async (req, res) => {
+
+    return res.status(200).json(
+
+        new ApiResponse(
+
+            200,
+
+            "Current user fetched successfully.",
+
+            req.user
+
+        )
+
+    );
+
+});
 module.exports = {
   signup,
   login,
