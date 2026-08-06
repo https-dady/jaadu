@@ -6,14 +6,19 @@ import App from "./App";
 import "./index.css";
 
 import { AuthProvider } from "@/context/AuthContext";
+import { ChatProvider } from "@/context/ChatContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <App />
-      <Toaster position="top-right" 
-      reverseOrder={false} 
-      />
+      <ChatProvider>
+        <App />
+
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+        />
+      </ChatProvider>
     </AuthProvider>
   </StrictMode>
 );
