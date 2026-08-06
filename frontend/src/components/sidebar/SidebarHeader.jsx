@@ -1,17 +1,6 @@
 // ============================================================================
 // Sidebar Header
 // ============================================================================
-//
-// Purpose:
-// -----------------------------------------------------------------------------
-// Sidebar ka top section.
-//
-// Responsibilities:
-// - App Logo
-// - App Name
-// - Future me Settings Button
-//
-// ============================================================================
 
 import { HiOutlineCog6Tooth } from "react-icons/hi2";
 
@@ -25,16 +14,20 @@ function SidebarHeader() {
         flex
         items-center
         justify-between
-        px-5
+        px-4
+        sm:px-5
+        shrink-0
       "
     >
       {/* Logo + App Name */}
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 min-w-0">
         <div
           className="
-            h-11
-            w-11
+            h-10
+            w-10
+            sm:h-11
+            sm:w-11
             rounded-xl
             bg-blue-600
             text-white
@@ -43,17 +36,18 @@ function SidebarHeader() {
             justify-center
             font-bold
             text-lg
+            shrink-0
           "
         >
           J
         </div>
 
-        <div>
-          <h1 className="font-bold text-lg">
+        <div className="min-w-0">
+          <h1 className="font-bold text-base sm:text-lg truncate">
             JAADU
           </h1>
 
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500 truncate">
             Chat Application
           </p>
         </div>
@@ -67,6 +61,7 @@ function SidebarHeader() {
           rounded-lg
           hover:bg-gray-100
           transition
+          shrink-0
         "
       >
         <HiOutlineCog6Tooth

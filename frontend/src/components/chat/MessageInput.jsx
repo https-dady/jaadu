@@ -25,14 +25,18 @@ function MessageInput() {
   return (
     <div
       className="
-        h-20
+        h-16
+        sm:h-20
         bg-white
         border-t
         border-gray-200
-        px-5
+        px-3
+        sm:px-5
         flex
         items-center
-        gap-3
+        gap-2
+        sm:gap-3
+        shrink-0
       "
     >
       {/* Emoji */}
@@ -43,9 +47,13 @@ function MessageInput() {
           rounded-lg
           hover:bg-gray-100
           transition
+          shrink-0
         "
       >
-        <HiOutlineFaceSmile size={24} />
+        <HiOutlineFaceSmile
+          size={20}
+          className="sm:w-6 sm:h-6"
+        />
       </button>
 
       {/* Attachment */}
@@ -56,9 +64,13 @@ function MessageInput() {
           rounded-lg
           hover:bg-gray-100
           transition
+          shrink-0
         "
       >
-        <HiOutlinePaperClip size={24} />
+        <HiOutlinePaperClip
+          size={20}
+          className="sm:w-6 sm:h-6"
+        />
       </button>
 
       {/* Input */}
@@ -68,13 +80,16 @@ function MessageInput() {
         placeholder="Type a message..."
         className="
           flex-1
-          h-12
+          h-10
+          sm:h-12
           px-4
           rounded-xl
           border
           border-gray-300
           outline-none
+          text-sm
           focus:border-blue-500
+          transition
         "
       />
 
@@ -82,8 +97,10 @@ function MessageInput() {
 
       <button
         className="
-          h-12
-          w-12
+          h-10
+          w-10
+          sm:h-12
+          sm:w-12
           rounded-xl
           bg-blue-600
           text-white
@@ -92,9 +109,13 @@ function MessageInput() {
           justify-center
           hover:bg-blue-700
           transition
+          shrink-0
         "
       >
-        <HiOutlinePaperAirplane size={22} />
+        <HiOutlinePaperAirplane
+          size={20}
+          className="sm:w-[22px] sm:h-[22px]"
+        />
       </button>
     </div>
   );

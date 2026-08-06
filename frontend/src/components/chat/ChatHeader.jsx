@@ -6,38 +6,54 @@ import {
   HiOutlinePhone,
   HiOutlineVideoCamera,
   HiOutlineEllipsisVertical,
+  HiOutlineArrowLeft,
 } from "react-icons/hi2";
 
 import { useChat } from "@/context/ChatContext";
 
 function ChatHeader() {
-
-  const { selectedChat } = useChat();
+  const { selectedChat, backToSidebar } = useChat();
 
   if (!selectedChat) return null;
 
   return (
     <header
       className="
-        h-20
+        h-16
+        sm:h-20
         bg-white
         border-b
         border-gray-200
-        px-6
+        px-3
+        sm:px-6
         flex
         items-center
         justify-between
+        shrink-0
       "
     >
       {/* Left */}
 
-      <div className="flex items-center gap-4">
-
+      <div className="flex items-center gap-3 min-w-0">
+        <button
+  onClick={backToSidebar}
+  className="
+    md:hidden
+    p-2
+    rounded-lg
+    hover:bg-gray-100
+    transition
+  "
+>
+  <HiOutlineArrowLeft size={22} />
+</button>
         <div
           className="
             relative
-            h-12
-            w-12
+            h-10
+            w-10
+            sm:h-12
+            sm:w-12
             rounded-full
             bg-blue-600
             text-white
@@ -45,6 +61,7 @@ function ChatHeader() {
             items-center
             justify-center
             font-semibold
+            shrink-0
           "
         >
           {selectedChat.avatar}
@@ -66,40 +83,41 @@ function ChatHeader() {
           )}
         </div>
 
-        <div>
-
-          <h2 className="font-semibold text-lg">
+        <div className="min-w-0">
+          <h2 className="font-semibold text-base sm:text-lg truncate">
             {selectedChat.name}
           </h2>
 
-          <p className="text-sm text-gray-500">
-            {selectedChat.isOnline
-              ? "Online"
-              : "Offline"}
+          <p className="text-xs sm:text-sm text-gray-500 truncate">
+            {selectedChat.isOnline ? "Online" : "Offline"}
           </p>
-
         </div>
-
       </div>
 
       {/* Right */}
 
-      <div className="flex items-center gap-2">
-
-        <button className="p-2 rounded-lg hover:bg-gray-100">
-          <HiOutlinePhone size={22} />
+      <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+        <button className="p-2 rounded-lg hover:bg-gray-100 transition">
+          <HiOutlinePhone
+            size={20}
+            className="sm:w-[22px] sm:h-[22px]"
+          />
         </button>
 
-        <button className="p-2 rounded-lg hover:bg-gray-100">
-          <HiOutlineVideoCamera size={22} />
+        <button className="p-2 rounded-lg hover:bg-gray-100 transition">
+          <HiOutlineVideoCamera
+            size={20}
+            className="sm:w-[22px] sm:h-[22px]"
+          />
         </button>
 
-        <button className="p-2 rounded-lg hover:bg-gray-100">
-          <HiOutlineEllipsisVertical size={22} />
+        <button className="p-2 rounded-lg hover:bg-gray-100 transition">
+          <HiOutlineEllipsisVertical
+            size={20}
+            className="sm:w-[22px] sm:h-[22px]"
+          />
         </button>
-
       </div>
-
     </header>
   );
 }

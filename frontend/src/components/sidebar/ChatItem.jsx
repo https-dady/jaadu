@@ -27,12 +27,12 @@ function ChatItem({
   isOnline = true,
   unreadCount = 0,
 }) {
-  const { selectedChat, setSelectedChat } = useChat();
+const { selectedChat, openChat } = useChat();
 
   return (
     <div
       onClick={() =>
-        setSelectedChat({
+  openChat({
           id,
           name,
           avatar,

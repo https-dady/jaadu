@@ -6,17 +6,21 @@
 // -----------------------------------------------------------------------------
 // Sidebar me users/chats search karne ke liye.
 //
-// Note:
-// Abhi ye sirf UI hai.
-// Search functionality baad me API integration ke time add hogi.
-//
 // ============================================================================
 
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
 function SearchBar() {
   return (
-    <div className="p-4 border-b border-gray-200">
+    <div
+      className="
+        p-3
+        sm:p-4
+        border-b
+        border-gray-200
+        shrink-0
+      "
+    >
       <div className="relative">
 
         <HiOutlineMagnifyingGlass
@@ -35,11 +39,13 @@ function SearchBar() {
           placeholder="Search chats..."
           className="
             w-full
-            h-11
+            h-10
+            sm:h-11
             rounded-xl
             bg-gray-100
             pl-12
             pr-4
+            text-sm
             outline-none
             border
             border-transparent

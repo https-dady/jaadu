@@ -21,18 +21,39 @@ const ChatContext = createContext();
 export function ChatProvider({ children }) {
 
   // Selected Chat
-  const [selectedChat, setSelectedChat] = useState(dummyChats[0]);
+  const [selectedChat, setSelectedChat] = useState(
+  window.innerWidth >= 768 ? dummyChats[0] : null
+);
 
   // Mobile Sidebar
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
-  const value = {
-    selectedChat,
-    setSelectedChat,
+  const openChat = (chat) => {
+  setSelectedChat(chat);
 
-    isSidebarOpen,
-    setSidebarOpen,
-  };
+  if (window.innerWidth < 768) {
+    setSidebarOpen(false);
+  }
+};
+
+const backToSidebar = () => {
+  setSelectedChat(null);
+
+  if (window.innerWidth < 768) {
+    setSidebarOpen(true);
+  }
+};
+
+  const value = {
+  selectedChat,
+  setSelectedChat,
+
+  isSidebarOpen,
+  setSidebarOpen,
+
+  openChat,
+  backToSidebar,
+};
 
   return (
     <ChatContext.Provider value={value}>
