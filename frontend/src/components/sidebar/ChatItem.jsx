@@ -53,11 +53,13 @@ const { selectedChat, openChat } = useChat();
         mb-1
         rounded-xl
         cursor-pointer
-        transition-all
-        duration-200
+       transition-all
+duration-200
+ease-in-out
+hover:scale-[1.01]
         ${
           selectedChat?.id === id
-            ? "bg-blue-100 border-l-4 border-blue-600 shadow-sm"
+            ? "bg-blue-50 border-l-4 border-blue-600 shadow-sm"
             : "hover:bg-gray-100"
         }
       `}

@@ -36,6 +36,7 @@ function Sidebar() {
         md:w-[340px]
         h-full
         bg-white
+shadow-sm
         border-r
         border-gray-200
         flex

@@ -24,7 +24,7 @@ function MessageBubble({
 }) {
   return (
     <div
-      className={`flex mb-4 ${
+      className={`flex mb-4 animate-fade-in ${
         isOwnMessage
           ? "justify-end"
           : "justify-start"
@@ -32,11 +32,17 @@ function MessageBubble({
     >
       <div
         className={`
-          max-w-[70%]
+          max-w-[85%]
+          sm:max-w-[70%]
           rounded-2xl
-          px-4
-          py-3
+          px-3
+          py-2
+          sm:px-4
+          sm:py-3
           shadow-sm
+          break-words
+          transition-all
+          duration-200
           ${
             isOwnMessage
               ? "bg-blue-600 text-white rounded-br-md"
